@@ -1,13 +1,10 @@
 package visionmaster.enums;
 
-/**
- * Tipos de graduacin disponibles para los lentes.
- */
 public enum TipoGraduacion {
-    MIOPIA("Miopa"),
+    MIOPIA("Miopía"),
     ASTIGMATISMO("Astigmatismo"),
     PRESBICIA("Presbicia"),
-    NEUTRO("Sin graduacin");
+    NEUTRO("Sin graduación");
 
     private final String descripcion;
 

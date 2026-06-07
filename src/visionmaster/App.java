@@ -6,9 +6,6 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import visionmaster.ui.MainView;
 
-/**
- * Punto de entrada de la aplicacin VisionMaster.
- */
 public class App extends Application {
 
     @Override
@@ -20,7 +17,7 @@ public class App extends Application {
             getClass().getResource("/visionmaster/styles/app.css").toExternalForm()
         );
 
-        primaryStage.setTitle("VisionMaster  Sistema de Gestin ptica");
+        primaryStage.setTitle("VisionMaster – Sistema de Gestión Óptica");
         primaryStage.setScene(scene);
         primaryStage.setMinWidth(860);
         primaryStage.setMinHeight(620);

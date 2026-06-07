@@ -1,8 +1,5 @@
 package visionmaster.enums;
 
-/**
- * Estado posible de una cita agendada.
- */
 public enum EstadoCita {
     PENDIENTE("Pendiente"),
     CONFIRMADA("Confirmada"),

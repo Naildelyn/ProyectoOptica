@@ -11,9 +11,7 @@ import visionmaster.model.*;
 import java.io.File;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Pantalla 5: Resumen final de la compra con opcin de descargar el ticket.
- */
+
 public class ResumenView {
 
     private final VBox view;
@@ -34,10 +32,10 @@ public class ResumenView {
         OrdenCompra orden = main.getOrdenActual();
         Cliente cliente   = main.getClienteActual();
 
-        //  Cabecera de xito 
+        // ── Cabecera de éxito ──────────────────────────────────────
         Label iconExito = new Label("");
         iconExito.setStyle("-fx-font-size: 40px;");
-        Label titulo = new Label("Pedido confirmado!");
+        Label titulo = new Label("¡Pedido confirmado!");
         titulo.getStyleClass().add("step-title");
         Label folio = new Label("Folio: " + orden.getFolio());
         folio.getStyleClass().add("step-subtitle");
@@ -46,15 +44,15 @@ public class ResumenView {
         VBox headerBox = new VBox(6, iconExito, titulo, folio);
         headerBox.setAlignment(Pos.CENTER);
 
-        //  Datos del cliente 
+        // ── Datos del cliente ──────────────────────────────────────
         TitledPane panelCliente = crearPanel("Cliente",
             buildGrid(new String[][]{
                 {"Nombre:",   cliente.getNombre()},
-                {"Telfono:", cliente.getTelefono()},
+                {"Teléfono:", cliente.getTelefono()},
                 {"Correo:",   cliente.getCorreo()},
             }));
 
-        //  Productos 
+        // ── Productos ──────────────────────────────────────────────
         VBox prodList = new VBox(6);
         for (Producto p : orden.getProductos()) {
             HBox row = new HBox();
@@ -69,7 +67,7 @@ public class ResumenView {
         }
         TitledPane panelProductos = crearPanel("Productos", prodList);
 
-        //  Cita 
+        // ── Cita ──────────────────────────────────────────────────
         TitledPane panelCita = null;
         if (orden.getCita() != null) {
             Cita c = orden.getCita();
@@ -82,11 +80,11 @@ public class ResumenView {
                 }));
         }
 
-        //  Totales 
+        // ── Totales ────────────────────────────────────────────────
         String[][] totalesData = orden.isCuponAplicado()
             ? new String[][]{
                 {"Subtotal:",  String.format("$%.2f", orden.getSubtotal())},
-                {"Cupn aplicado:", String.format("-$%.2f", orden.getDescuentoAplicado())},
+                {"Cupón aplicado:", String.format("-$%.2f", orden.getDescuentoAplicado())},
                 {"TOTAL:",     String.format("$%.2f", orden.getTotalNeto())}}
             : new String[][]{
                 {"Subtotal:",  String.format("$%.2f", orden.getSubtotal())},
@@ -94,7 +92,7 @@ public class ResumenView {
 
         TitledPane panelTotales = crearPanel("Resumen de pago", buildGrid(totalesData));
 
-        //  Botones de accin 
+        // ── Botones de acción ──────────────────────────────────────
         Button btnDescargar = new Button(" Descargar comprobante (.txt)");
         btnDescargar.getStyleClass().add("btn-primary");
         btnDescargar.setOnAction(e -> descargarComprobante());
@@ -103,7 +101,7 @@ public class ResumenView {
         btnNuevaCompra.getStyleClass().add("btn-secondary");
         btnNuevaCompra.setOnAction(e -> main.mostrarPaso(0));
 
-        Label lblVentas = new Label("Total de ventas en esta sesin: "
+        Label lblVentas = new Label("Total de ventas en esta sesión: "
             + visionmaster.model.Tienda.getTotalVentasGlobal());
         lblVentas.getStyleClass().add("step-subtitle");
 
@@ -118,7 +116,7 @@ public class ResumenView {
     }
 
     private void descargarComprobante() {
-        DirectoryChooser dc = new DirectoryChooser();
+        DirectoryChooser dc = new DirectoryChooser();F
         dc.setTitle("Selecciona la carpeta de destino");
         File carpeta = dc.showDialog(stage);
 
@@ -128,7 +126,7 @@ public class ResumenView {
                 "Comprobante guardado en:\n" + carpeta.getAbsolutePath()
                     + "/ticket_" + main.getOrdenActual().getFolio() + ".txt",
                 ButtonType.OK);
-            ok.setHeaderText("Comprobante generado con xito");
+            ok.setHeaderText("Comprobante generado con éxito");
             ok.showAndWait();
         }
     }

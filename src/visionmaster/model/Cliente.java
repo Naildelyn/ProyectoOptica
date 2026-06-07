@@ -3,19 +3,14 @@ package visionmaster.model;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Representa al cliente que interacta con el sistema.
- * El ID es autoincremenatal gracias al contador esttico.
- */
 public class Cliente {
 
-    private static int contadorId = 1;  // Contador esttico para IDs
-
+    private static int contadorId = 1;
     private int id;
     private String nombre;
     private String telefono;
     private String correo;
-    private List<OrdenCompra> historialCompras;  // Coleccin: ArrayList
+    private List<OrdenCompra> historialCompras;
 
     public Cliente(String nombre, String telefono, String correo) {
         this.id = contadorId++;
@@ -44,14 +39,11 @@ public class Cliente {
         historialCompras.add(orden);
     }
 
-    /**
-     * Reinicia el contador (til para pruebas).
-     */
     public static void resetContador() { contadorId = 1; }
 
     @Override
     public String toString() {
-        return String.format("Cliente #%d  %s | Tel: %s | Correo: %s",
+        return String.format("Cliente #%d – %s | Tel: %s | Correo: %s",
             id, nombre, telefono, correo);
     }
 }

@@ -13,9 +13,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-/**
- * Pantalla 3: Agendado de cita de examen o entrega.
- */
+
 public class CitaView {
 
     private final VBox view;
@@ -23,7 +21,7 @@ public class CitaView {
 
     private final ToggleGroup tgTipoCita = new ToggleGroup();
     private final RadioButton rbExamen   = new RadioButton("Examen visual");
-    private final RadioButton rbEntrega  = new RadioButton("Entrega / Recoleccin");
+    private final RadioButton rbEntrega  = new RadioButton("Entrega / Recolección");
 
     private final DatePicker dpFecha   = new DatePicker(LocalDate.now().plusDays(3));
     private final ComboBox<String> cbHora = new ComboBox<>();
@@ -36,7 +34,7 @@ public class CitaView {
     // Panel entrega
     private final VBox panelEntrega = new VBox(10);
     private final TextField tfDireccion = new TextField();
-    private final CheckBox chkEnvio     = new CheckBox("Envo a domicilio");
+    private final CheckBox chkEnvio     = new CheckBox("Envío a domicilio");
 
     private final Label lblError = new Label();
 
@@ -55,7 +53,7 @@ public class CitaView {
         Label subtitulo = new Label("Elige el tipo de cita, fecha y hora");
         subtitulo.getStyleClass().add("step-subtitle");
 
-        //  Tipo de cita 
+        // ── Tipo de cita ──────────────────────────────────────────
         rbExamen.setToggleGroup(tgTipoCita);
         rbEntrega.setToggleGroup(tgTipoCita);
         rbExamen.setSelected(true);
@@ -65,7 +63,7 @@ public class CitaView {
         HBox tipoBox = new HBox(24, rbExamen, rbEntrega);
         tipoBox.setAlignment(Pos.CENTER_LEFT);
 
-        //  Fecha y hora 
+        // ── Fecha y hora ──────────────────────────────────────────
         dpFecha.getStyleClass().add("form-input");
         dpFecha.setMaxWidth(200);
 
@@ -84,16 +82,16 @@ public class CitaView {
         agregarFila(fechaGrid, "Fecha *", dpFecha, 0);
         agregarFila(fechaGrid, "Hora *",  cbHora,  1);
 
-        //  Panel examen 
+        // ── Panel examen ──────────────────────────────────────────
         panelExamen.setVisible(true);
         panelExamen.setManaged(true);
 
         cbTipoExamen.setItems(FXCollections.observableArrayList(
-            "Examen bsico de la vista (Gratuito)",
-            "Topografa corneal ($350)",
+            "Examen básico de la vista (Gratuito)",
+            "Topografía corneal ($350)",
             "Examen de fondo de ojo ($500)",
-            "Evaluacin completa ($700)"));
-        cbTipoExamen.setValue("Examen bsico de la vista (Gratuito)");
+            "Evaluación completa ($700)"));
+        cbTipoExamen.setValue("Examen básico de la vista (Gratuito)");
         cbTipoExamen.setMaxWidth(380);
         cbTipoExamen.getStyleClass().add("form-input");
         cbTipoExamen.setOnAction(e -> actualizarCostoExamen());
@@ -112,11 +110,11 @@ public class CitaView {
         examenGrid.add(lblCostoExamen, 1, 1);
         panelExamen.getChildren().add(examenGrid);
 
-        //  Panel entrega 
+        // ── Panel entrega ─────────────────────────────────────────
         panelEntrega.setVisible(false);
         panelEntrega.setManaged(false);
 
-        tfDireccion.setPromptText("Calle, nmero, colonia, ciudad");
+        tfDireccion.setPromptText("Calle, número, colonia, ciudad…");
         tfDireccion.setMaxWidth(380);
         tfDireccion.getStyleClass().add("form-input");
 
@@ -127,8 +125,8 @@ public class CitaView {
         entregaGrid.setHgap(16);
         entregaGrid.setVgap(10);
         entregaGrid.setMaxWidth(500);
-        agregarFila(entregaGrid, "Envo?", chkEnvio, 0);
-        agregarFila(entregaGrid, "Direccin:", tfDireccion, 1);
+        agregarFila(entregaGrid, "¿Envío?", chkEnvio, 0);
+        agregarFila(entregaGrid, "Dirección:", tfDireccion, 1);
         panelEntrega.getChildren().add(entregaGrid);
 
         lblError.getStyleClass().add("lbl-error");
@@ -137,7 +135,7 @@ public class CitaView {
         Region spacer = new Region();
         VBox.setVgrow(spacer, Priority.ALWAYS);
 
-        HBox nav = main.buildNavButtons(" Anterior", "Siguiente ",
+        HBox nav = main.buildNavButtons("← Anterior", "Siguiente →",
             () -> main.mostrarPaso(1), this::validarYAvanzar);
 
         root.getChildren().addAll(
@@ -168,7 +166,7 @@ public class CitaView {
     private void validarYAvanzar() {
         LocalDate fecha = dpFecha.getValue();
         if (fecha == null || fecha.isBefore(LocalDate.now())) {
-            mostrarError("Selecciona una fecha vlida (hoy o posterior).");
+            mostrarError("Selecciona una fecha válida (hoy o posterior).");
             return;
         }
 
@@ -188,7 +186,7 @@ public class CitaView {
             cita = new CitaExamen(folio, fechaHora, main.getClienteActual(), tipo, costo);
         } else {
             if (chkEnvio.isSelected() && tfDireccion.getText().trim().isEmpty()) {
-                mostrarError("Ingresa la direccin de envo.");
+                mostrarError("Ingresa la dirección de envío.");
                 return;
             }
             String dir = chkEnvio.isSelected() ? tfDireccion.getText().trim() : "Sucursal central";
@@ -202,7 +200,7 @@ public class CitaView {
     }
 
     private void mostrarError(String msg) {
-        lblError.setText(" " + msg);
+        lblError.setText("⚠  " + msg);
         lblError.setVisible(true);
     }
 
@@ -213,7 +211,7 @@ public class CitaView {
         g.add(ctrl, 1, row);
     }
 
-    // Permite CheckBox tambin
+    // Permite CheckBox también
     private void agregarFila(GridPane g, String lbl, CheckBox ctrl, int row) {
         Label l = new Label(lbl);
         l.getStyleClass().add("form-label");
@@ -221,7 +219,7 @@ public class CitaView {
         g.add(ctrl, 1, row);
     }
 
-    // Import esttico para que compile (Tienda ya importada a travs de main)
+    // Import estático para que compile (Tienda ya importada a través de main)
     private static class Tienda {
         static String generarFolioCita() {
             return visionmaster.model.Tienda.generarFolioCita();

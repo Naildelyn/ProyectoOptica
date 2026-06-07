@@ -1,8 +1,5 @@
 package visionmaster.enums;
 
-/**
- * Materiales disponibles para los lentes.
- */
 public enum MaterialLente {
     POLICARBONATO("Policarbonato", 350.0),
     RESINA("Resina", 200.0),

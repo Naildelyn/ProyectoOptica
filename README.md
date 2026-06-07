@@ -20,19 +20,10 @@ personalización y compra de lentes en una óptica.
 | **Static** | `totalVentasGlobal`, `folioActual` en `Tienda`; `contadorId` en `Cliente` |
 | **Colecciones** | `ArrayList<Producto>`, `ArrayList<Cita>`, `HashMap<Integer,Cliente>`, `List<OrdenCompra>` |
 
-## Compilación
-
-### Prerequisitos
-- **JDK 17+** (recomendado JDK 21)
-- **JavaFX SDK 21** – descárgalo desde: https://gluonhq.com/products/javafx/
-
 ### Pasos
 
 ```bash
-# 1. Coloca el SDK de JavaFX en una carpeta, p. ej. C:\javafx-sdk-21\lib
-# 2. Desde la raíz del proyecto:
 
-# Compilar (Windows – ajusta la ruta a JavaFX)
 javac --module-path "C:\javafx-sdk-21\lib" \
       --add-modules javafx.controls,javafx.fxml \
       -d out \
@@ -40,27 +31,15 @@ javac --module-path "C:\javafx-sdk-21\lib" \
       src/visionmaster/**/*.java \
       src/visionmaster/*.java
 
-# Copiar recursos CSS
+
 xcopy src\visionmaster\styles out\visionmaster\styles /E /I
 
 # Ejecutar
 java --module-path "C:\javafx-sdk-21\lib" \
      --add-modules javafx.controls,javafx.fxml \
      -cp out visionmaster.App
-```
 
-### Con IntelliJ IDEA (recomendado)
-1. Abre el proyecto como proyecto Java estándar.
-2. Ve a `File → Project Structure → Libraries` y agrega el `lib` de JavaFX.
-3. En `Run/Debug Configurations` del `App.java`, agrega en VM Options:
-   ```
-   --module-path /ruta/javafx-sdk-21/lib --add-modules javafx.controls,javafx.fxml
-   ```
 4. Ejecuta `App.java`.
-
-### Con Maven (alternativo)
-Puedes migrar a Maven añadiendo la dependencia `org.openjfx:javafx-controls:21`
-y el plugin `javafx-maven-plugin`.
 
 ## Estructura de archivos
 ```

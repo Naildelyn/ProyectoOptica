@@ -1,19 +1,11 @@
 package visionmaster.model;
 
-import visionmaster.enums.MaterialLente;
-import visionmaster.enums.TipoGraduacion;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * Gestor central del sistema VisionMaster.
- * Administra inventario, clientes, citas y ventas.
- * Contiene atributos y mtodos estticos para reglas de negocio globales.
- */
 public class Tienda {
 
-    // ----- Atributos estticos (globales) -----
+    // ----- Atributos estáticos (globales) -----
     private static int totalVentasGlobal = 0;
     private static int folioContador    = 0;
     public  static final double MONTO_CUPON = 4000.0;
@@ -21,9 +13,9 @@ public class Tienda {
 
     // ----- Atributos de instancia -----
     private String nombreSucursal;
-    private ArrayList<Producto> inventario;       // Coleccin de productos
-    private ArrayList<Cita> citas;                // Coleccin de citas
-    private HashMap<Integer, Cliente> clientes;   // Mapa id  cliente
+    private ArrayList<Producto> inventario;
+    private ArrayList<Cita> citas;
+    private HashMap<Integer, Cliente> clientes;
 
     public Tienda(String nombreSucursal) {
         this.nombreSucursal = nombreSucursal;
@@ -34,10 +26,10 @@ public class Tienda {
     }
 
     // ============================================================
-    //  MTODOS ESTTICOS  reglas de negocio globales
+    //  MÉTODOS ESTÁTICOS – reglas de negocio globales
     // ============================================================
 
-    /** Valida si el monto califica para el cupn de descuento. */
+    /** Valida si el monto califica para el cupón de descuento. */
     public static boolean calificaParaCupon(double monto) {
         return monto >= MONTO_CUPON;
     }
@@ -50,7 +42,7 @@ public class Tienda {
     public static int getTotalVentasGlobal() { return totalVentasGlobal; }
 
     // ============================================================
-    //  GESTIN DE CLIENTES
+    //  GESTIÓN DE CLIENTES
     // ============================================================
 
     public void registrarCliente(Cliente c) {
@@ -66,7 +58,7 @@ public class Tienda {
     }
 
     // ============================================================
-    //  GESTIN DE INVENTARIO
+    //  GESTIÓN DE INVENTARIO
     // ============================================================
 
     public void agregarProducto(Producto p) { inventario.add(p); }
@@ -77,14 +69,13 @@ public class Tienda {
             .findFirst().orElse(null);
     }
 
-    /** Devuelve el catlogo completo ordenado por precio ascendente. */
+
     public List<Producto> getInventarioOrdenadoPorPrecio() {
         return inventario.stream()
             .sorted(Comparator.comparingDouble(Producto::getPrecio))
             .collect(Collectors.toList());
     }
 
-    /** Filtra el inventario devolviendo solo instancias de Armazon. */
     public List<Armazon> getCatalogoArmazones() {
         return inventario.stream()
             .filter(p -> p instanceof Armazon)
@@ -96,7 +87,7 @@ public class Tienda {
     public ArrayList<Producto> getInventario() { return inventario; }
 
     // ============================================================
-    //  GESTIN DE CITAS
+    //  GESTIÓN DE CITAS
     // ============================================================
 
     public void agendarCita(Cita cita) { citas.add(cita); }
@@ -125,13 +116,13 @@ public class Tienda {
     public String getNombreSucursal() { return nombreSucursal; }
 
     // ============================================================
-    //  INVENTARIO INICIAL DE DEMOSTRACIN
+    //  INVENTARIO INICIAL DE DEMOSTRACIÓN
     // ============================================================
 
     private void cargarInventarioInicial() {
         // Armazones
         inventario.add(new Armazon(1, "Classic Pro", 1200.0,
-            "Armazn clsico de metal", "Ray-Ban", "Negro", "Cuadrado"));
+            "Armazón clásico de metal", "Ray-Ban", "Negro", "Cuadrado"));
         inventario.add(new Armazon(2, "AeroFlex", 980.0,
             "Ligero y flexible", "Oakley", "Azul", "Deportivo"));
         inventario.add(new Armazon(3, "VintageRound", 1500.0,
@@ -139,15 +130,15 @@ public class Tienda {
         inventario.add(new Armazon(4, "UrbanSlim", 750.0,
             "Minimalista y moderno", "Zara", "Gris", "Cuadrado"));
         inventario.add(new Armazon(5, "AviatorGold", 2200.0,
-            "Armazn tipo aviador dorado", "Tom Ford", "Dorado", "Aviador"));
+            "Armazón tipo aviador dorado", "Tom Ford", "Dorado", "Aviador"));
         inventario.add(new Armazon(6, "KidsStar", 450.0,
-            "Resistente para nios", "OtticaKids", "Rojo", "Redondo"));
+            "Resistente para niños", "OtticaKids", "Rojo", "Redondo"));
 
         // Accesorios
-        inventario.add(new Accesorio(101, "Estuche Rgido Premium", 180.0,
-            "Proteccin total", "Estuche", true));
-        inventario.add(new Accesorio(102, "Pao Microfibra", 45.0,
-            "Limpieza sin rayones", "Pao", true));
+        inventario.add(new Accesorio(101, "Estuche Rígido Premium", 180.0,
+            "Protección total", "Estuche", true));
+        inventario.add(new Accesorio(102, "Paño Microfibra", 45.0,
+            "Limpieza sin rayones", "Paño", true));
         inventario.add(new Accesorio(103, "Cadena Decorativa", 120.0,
             "Cadena antiderrapante", "Cadena", true));
         inventario.add(new Accesorio(104, "Spray Limpiador", 65.0,

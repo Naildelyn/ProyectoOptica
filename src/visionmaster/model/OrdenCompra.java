@@ -1,8 +1,5 @@
 package visionmaster.model;
 
-import visionmaster.interfaces.Descargable;
-import visionmaster.interfaces.Promocionable;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,14 +7,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import visionmaster.interfaces.Descargable;
+import visionmaster.interfaces.Promocionable;
 
-/**
- * Representa una orden de compra completa.
- * Implementa Descargable (genera ticket .txt) y Promocionable (aplica cupones).
- */
 public class OrdenCompra implements Descargable, Promocionable {
 
-    // ----- Constantes y atributos estticos -----
+    // ----- Constantes y atributos estáticos -----
     private static final double MONTO_MINIMO_CUPON = 4000.0;
     private static final double VALOR_CUPON        = 400.0;
     private static int folioActual = 1000;  // Folio autoincremental
@@ -25,7 +20,7 @@ public class OrdenCompra implements Descargable, Promocionable {
     // ----- Atributos de instancia -----
     private String folio;
     private Cliente cliente;
-    private List<Producto> productos;    // Coleccin: ArrayList
+    private List<Producto> productos;
     private Cita cita;
     private double subtotal;
     private double descuentoAplicado;
@@ -45,7 +40,7 @@ public class OrdenCompra implements Descargable, Promocionable {
         this.descuentoAplicado = 0.0;
     }
 
-    // ----- Gestin de productos (coleccin en tiempo real) -----
+    // ----- Gestión de productos (colección en tiempo real) -----
     public void agregarProducto(Producto p) {
         productos.add(p);
         recalcular();
@@ -66,20 +61,20 @@ public class OrdenCompra implements Descargable, Promocionable {
         totalNeto = subtotal - descuentoAplicado;
     }
 
-    // ----- Implementacin de Promocionable -----
+    // ----- Implementación de Promocionable -----
     @Override
     public double calcularDescuento(double total) {
-        // Lgica de cupn: si supera $4000, descuenta $400
+        // Lógica de cupón: si supera $4000, descuenta $400
         return total >= MONTO_MINIMO_CUPON ? VALOR_CUPON : 0.0;
     }
 
-    // ----- Implementacin de Descargable -----
+    // ----- Implementación de Descargable -----
     @Override
     public void exportarAArchivo(String ruta) {
         String rutaFinal = ruta + "/ticket_" + folio + ".txt";
         try (PrintWriter pw = new PrintWriter(new FileWriter(rutaFinal))) {
             pw.println("=".repeat(52));
-            pw.println("         PTICA VISIONMASTER");
+            pw.println("         ÓPTICA VISIONMASTER");
             pw.println("         Comprobante de Compra");
             pw.println("=".repeat(52));
             pw.printf("Folio:        %s%n", folio);
@@ -87,13 +82,13 @@ public class OrdenCompra implements Descargable, Promocionable {
             pw.println("-".repeat(52));
             pw.println("DATOS DEL CLIENTE");
             pw.printf("Nombre:       %s%n", cliente.getNombre());
-            pw.printf("Telfono:     %s%n", cliente.getTelefono());
+            pw.printf("Teléfono:     %s%n", cliente.getTelefono());
             pw.printf("Correo:       %s%n", cliente.getCorreo());
             pw.println("-".repeat(52));
             pw.println("PRODUCTOS ADQUIRIDOS");
             for (Producto p : productos) {
                 pw.println(p.getDetalleCompleto());
-                pw.printf("   Precio: $%.2f%n", p.getPrecio());
+                pw.printf("  → Precio: $%.2f%n", p.getPrecio());
                 pw.println();
             }
             pw.println("-".repeat(52));
@@ -108,12 +103,12 @@ public class OrdenCompra implements Descargable, Promocionable {
             pw.println("RESUMEN DE PAGO");
             pw.printf("Subtotal:     $%.2f%n", subtotal);
             if (cuponAplicado) {
-                pw.printf("Cupn regalo: -$%.2f (compra  $%.0f)%n",
+                pw.printf("Cupón regalo: -$%.2f (compra ≥ $%.0f)%n",
                     descuentoAplicado, MONTO_MINIMO_CUPON);
             }
             pw.printf("TOTAL:        $%.2f%n", totalNeto);
             pw.println("=".repeat(52));
-            pw.println("  Gracias por su preferencia, VisionMaster!");
+            pw.println("  ¡Gracias por su preferencia, VisionMaster!");
             pw.println("=".repeat(52));
         } catch (IOException e) {
             System.err.println("Error al generar el comprobante: " + e.getMessage());

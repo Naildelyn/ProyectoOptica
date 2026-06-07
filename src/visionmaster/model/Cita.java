@@ -1,8 +1,8 @@
 package visionmaster.model;
 
-import visionmaster.enums.EstadoCita;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import visionmaster.enums.EstadoCita;
 
 /**
  * Clase base abstracta para las citas agendadas.
@@ -36,19 +36,17 @@ public abstract class Cita {
     public void confirmar() { this.estado = EstadoCita.CONFIRMADA; }
     public void cancelar()  { this.estado = EstadoCita.CANCELADA; }
 
-    /**
-     * Descripcin del tipo de cita para el comprobante.
-     */
+        /**
+        * Tipo de cita (Examen, Entrega, etc.) definido por cada subtipo.
+        */
     public abstract String getTipoCita();
 
-    /**
-     * Detalle adicional especfico del subtipo.
-     */
+
     public abstract String getDetalleAdicional();
 
     @Override
     public String toString() {
-        return String.format("[%s] %s  %s  Estado: %s",
+        return String.format("[%s] %s – %s – Estado: %s",
             folio, getTipoCita(), getFechaFormateada(), estado);
     }
 }
