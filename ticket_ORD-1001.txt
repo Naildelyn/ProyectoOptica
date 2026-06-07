@@ -1,0 +1,39 @@
+====================================================
+         ÓPTICA VISIONMASTER
+         Comprobante de Compra
+====================================================
+Folio:        ORD-1001
+Fecha:        04/06/2026 15:42:08
+----------------------------------------------------
+DATOS DEL CLIENTE
+Nombre:       María García López
+Teléfono:     5512345678
+Correo:       maria@correo.com
+----------------------------------------------------
+PRODUCTOS ADQUIRIDOS
+Armazón: AviatorGold (Armazón tipo aviador dorado)
+  Marca: Tom Ford | Color: Dorado | Estilo: Aviador
+  Graduación: Miopía | Material: Policarbonato
+  Precio base: $2200.00 | Total: $2550.00
+  → Precio: $2550.00
+
+Armazón: VintageRound (Estilo retro redondeado)
+  Marca: Persol | Color: Carey | Estilo: Redondo
+  Graduación: Sin graduación | Material: Cristal
+  Precio base: $1500.00 | Total: $2000.00
+  → Precio: $2000.00
+
+----------------------------------------------------
+CITA AGENDADA
+Tipo:         Cita de entrega
+Fecha/Hora:   10/06/2026 11:00
+Estado:       Confirmada
+Detalle:      Envío a domicilio: Insurgentes Sur 1234, Col. Del Valle, CDMX
+----------------------------------------------------
+RESUMEN DE PAGO
+Subtotal:     $4550.00
+Cupón regalo: -$400.00 (compra ≥ $4000)
+TOTAL:        $4150.00
+====================================================
+  ¡Gracias por su preferencia, VisionMaster!
+====================================================

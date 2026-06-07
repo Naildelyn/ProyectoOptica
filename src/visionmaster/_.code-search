@@ -1,0 +1,9 @@
+# Query: 👓
+# ContextLines: 1
+
+1 resultado - 1 archivo
+
+src/visionmaster/ui/MainView.java:
+52
+53:         Label logo = new Label(" VisionMaster");
+54          logo.getStyleClass().add("header-logo");

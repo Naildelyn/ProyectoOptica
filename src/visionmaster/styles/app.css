@@ -1,0 +1,291 @@
+/* ─── VisionMaster – Estilos JavaFX ─── */
+
+/* ── Variables de color ── */
+.root {
+    -vm-primary:   #1A5FBF;
+    -vm-primary-h: #154FA0;
+    -vm-accent:    #0FA3B1;
+    -vm-bg:        #F5F7FA;
+    -vm-surface:   #FFFFFF;
+    -vm-border:    #DDE3ED;
+    -vm-text:      #1C2B3A;
+    -vm-muted:     #6B7A8D;
+    -vm-success:   #1A8754;
+    -vm-danger:    #C0392B;
+    -vm-warn-bg:   #FFF8E1;
+    -vm-warn-text: #7D5A00;
+    -vm-cupon-bg:  #E8F8EE;
+    -vm-cupon-text:#1A6642;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ── Layout principal ── */
+.main-root {
+    -fx-background-color: -vm-bg;
+}
+
+/* ── Header ── */
+.header {
+    -fx-background-color: -vm-primary;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 6, 0, 0, 2);
+}
+.header-logo {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 0.5px;
+}
+.header-sub {
+    -fx-text-fill: rgba(255,255,255,0.75);
+    -fx-font-size: 12px;
+}
+
+/* ── Stepper lateral ── */
+.stepper {
+    -fx-background-color: -vm-surface;
+    -fx-border-color: -vm-border;
+    -fx-border-width: 0 1 0 0;
+}
+.step-label {
+    -fx-padding: 10 14 10 14;
+    -fx-font-size: 13px;
+    -fx-background-radius: 6;
+    -fx-cursor: default;
+}
+.step-active {
+    -fx-background-color: derive(-vm-primary, 88%);
+    -fx-text-fill: -vm-primary;
+    -fx-font-weight: bold;
+    -fx-border-color: -vm-primary;
+    -fx-border-width: 0 0 0 3;
+    -fx-border-radius: 0;
+}
+.step-done {
+    -fx-text-fill: -vm-success;
+    -fx-background-color: transparent;
+}
+.step-inactive {
+    -fx-text-fill: -vm-muted;
+    -fx-background-color: transparent;
+}
+
+/* ── Panel de paso ── */
+.step-panel {
+    -fx-background-color: -vm-surface;
+    -fx-background-radius: 0;
+}
+.step-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -vm-text;
+}
+.step-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: -vm-muted;
+    -fx-padding: 0 0 8 0;
+}
+.section-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -vm-text;
+    -fx-padding: 8 0 0 0;
+}
+
+/* ── Formulario ── */
+.form-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -vm-text;
+    -fx-min-width: 180px;
+}
+.form-input {
+    -fx-background-color: -vm-surface;
+    -fx-border-color: -vm-border;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 7 11 7 11;
+    -fx-font-size: 13px;
+    -fx-text-fill: -vm-text;
+}
+.form-input:focused {
+    -fx-border-color: -vm-primary;
+    -fx-effect: dropshadow(gaussian, derive(-vm-primary, 60%), 6, 0.3, 0, 0);
+}
+.lbl-error {
+    -fx-text-fill: -vm-danger;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+/* ── Detail card ── */
+.detail-card {
+    -fx-background-color: -vm-bg;
+    -fx-border-color: -vm-border;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+.card-title {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -vm-muted;
+}
+.detail-key {
+    -fx-font-size: 12px;
+    -fx-text-fill: -vm-muted;
+    -fx-min-width: 80px;
+}
+.detail-val {
+    -fx-font-size: 13px;
+    -fx-text-fill: -vm-text;
+    -fx-font-weight: bold;
+}
+
+/* ── Precios ── */
+.price-box {
+    -fx-background-color: -vm-bg;
+    -fx-border-color: -vm-border;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+.price-key {
+    -fx-font-size: 13px;
+    -fx-text-fill: -vm-muted;
+    -fx-min-width: 160px;
+}
+.price-val {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -vm-text;
+}
+.price-total {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -vm-primary;
+}
+.descuento-activo {
+    -fx-text-fill: -vm-success;
+    -fx-font-weight: bold;
+}
+
+/* ── Cupón ── */
+.cupon-badge {
+    -fx-background-color: -vm-cupon-bg;
+    -fx-text-fill: -vm-cupon-text;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 12 8 12;
+    -fx-background-radius: 6;
+    -fx-border-color: derive(-vm-cupon-bg, -15%);
+    -fx-border-radius: 6;
+}
+
+/* ── Carrito ── */
+.producto-row {
+    -fx-background-color: -vm-bg;
+    -fx-background-radius: 6;
+    -fx-border-color: -vm-border;
+    -fx-border-radius: 6;
+}
+.prod-nombre {
+    -fx-font-size: 13px;
+    -fx-text-fill: -vm-text;
+}
+.prod-precio {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -vm-text;
+    -fx-padding: 0 8 0 0;
+}
+
+/* ── Totales ── */
+.totales-box {
+    -fx-background-color: -vm-bg;
+    -fx-border-color: -vm-border;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+/* ── Botones ── */
+.btn-primary {
+    -fx-background-color: -vm-primary;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 9 22 9 22;
+    -fx-background-radius: 7;
+    -fx-cursor: hand;
+}
+.btn-primary:hover {
+    -fx-background-color: -vm-primary-h;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 6, 0, 0, 2);
+}
+.btn-secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: -vm-primary;
+    -fx-font-size: 13px;
+    -fx-padding: 9 18 9 18;
+    -fx-border-color: -vm-primary;
+    -fx-border-radius: 7;
+    -fx-background-radius: 7;
+    -fx-cursor: hand;
+}
+.btn-secondary:hover {
+    -fx-background-color: derive(-vm-primary, 90%);
+}
+.btn-accesorio {
+    -fx-background-color: white;
+    -fx-text-fill: -vm-text;
+    -fx-font-size: 12px;
+    -fx-padding: 6 12 6 12;
+    -fx-border-color: -vm-border;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-cursor: hand;
+}
+.btn-accesorio:hover {
+    -fx-border-color: -vm-primary;
+    -fx-text-fill: -vm-primary;
+}
+.btn-accesorio:disabled {
+    -fx-background-color: -vm-cupon-bg;
+    -fx-text-fill: -vm-cupon-text;
+    -fx-border-color: derive(-vm-cupon-bg, -10%);
+}
+.btn-remove {
+    -fx-background-color: transparent;
+    -fx-text-fill: -vm-danger;
+    -fx-font-size: 12px;
+    -fx-padding: 2 6 2 6;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+}
+.btn-remove:hover {
+    -fx-background-color: derive(-vm-danger, 80%);
+    -fx-background-radius: 4;
+}
+
+/* ── Resumen final ── */
+.resumen-panel {
+    -fx-background-color: -vm-surface;
+    -fx-border-color: -vm-border;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-font-size: 13px;
+}
+.resumen-panel > .title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -vm-text;
+    -fx-background-color: -vm-bg;
+    -fx-padding: 10 14 10 14;
+    -fx-background-radius: 8 8 0 0;
+}
+
+/* ── ScrollPane ── */
+.scroll-pane {
+    -fx-background-color: -vm-surface;
+    -fx-border-color: transparent;
+}
+.scroll-pane > .viewport {
+    -fx-background-color: -vm-surface;
+}
