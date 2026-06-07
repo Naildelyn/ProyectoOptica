@@ -3,3 +3,6 @@ bin/
 out/
 .build/
 .DS_Store
+*.txt
+out/
+*.class
