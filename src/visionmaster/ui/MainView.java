@@ -70,6 +70,9 @@ public class MainView {
             Label lbl = new Label(PASOS[i]);
             lbl.getStyleClass().addAll("step-label", "step-inactive");
             lbl.setMaxWidth(Double.MAX_VALUE);
+            final int paso = i;
+            lbl.setOnMouseClicked(e -> mostrarPaso(paso));
+            lbl.setStyle("-fx-cursor: hand;");
             stepLabels[i] = lbl;
             stepper.getChildren().add(lbl);
         }

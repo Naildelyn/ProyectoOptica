@@ -45,7 +45,7 @@ public class PagoView {
         actualizarListaProductos();
 
         //  Seccin de accesorios adicionales 
-        Label lblAccTitulo = new Label("Deseas agregar algn accesorio?");
+        Label lblAccTitulo = new Label("¿Deseas agregar algún accesorio?");
         lblAccTitulo.getStyleClass().add("section-title");
 
         HBox accesoriosBox = new HBox(10);
@@ -140,7 +140,7 @@ public class PagoView {
         if (orden.isCuponAplicado()) {
             lblDescuento.setText(String.format("-$%.2f", orden.getDescuentoAplicado()));
             lblDescuento.getStyleClass().add("descuento-activo");
-            lblCuponInfo.setText(" Cupn aplicado! Tu compra supera $"
+            lblCuponInfo.setText(" Cupón aplicado! Tu compra supera $"
                 + (int) OrdenCompra.getMontoMinimoCupon()
                 + "  descuento automtico de $" + (int) OrdenCompra.getValorCupon());
             lblCuponInfo.setVisible(true);

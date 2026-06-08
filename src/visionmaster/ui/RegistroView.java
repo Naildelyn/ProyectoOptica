@@ -42,13 +42,15 @@ public class RegistroView {
         form.setVgap(14);
         form.setMaxWidth(480);
 
-        tfNombre.setPromptText("Ej. Mara Garca Lpez");
+        tfNombre.setPromptText("Ej. María García López");
         tfTelefono.setPromptText("Ej. 5512345678");
+        tfTelefono.setTextFormatter(new TextFormatter<>(c ->
+        c.getText().matches("[0-9]*") && c.getControlNewText().length() <= 10 ? c : null));
         tfCorreo.setPromptText("Ej. maria@correo.com");
 
         agregarCampo(form, "Nombre completo *", tfNombre, 0);
-        agregarCampo(form, "Telfono *",        tfTelefono, 1);
-        agregarCampo(form, "Correo electrnico *", tfCorreo, 2);
+        agregarCampo(form, "Teléfono *",        tfTelefono, 1);
+        agregarCampo(form, "Correo electrónico *", tfCorreo, 2);
 
         lblError.getStyleClass().add("lbl-error");
         lblError.setVisible(false);
@@ -81,7 +83,7 @@ public class RegistroView {
             return;
         }
         if (!correo.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
-            mostrarError("El correo electrnico no tiene un formato vlido.");
+            mostrarError("El correo electrónico no tiene un formato válido.");
             return;
         }
         if (!telefono.matches("\\d{10}")) {

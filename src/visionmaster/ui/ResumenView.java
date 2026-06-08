@@ -116,7 +116,7 @@ public class ResumenView {
     }
 
     private void descargarComprobante() {
-        DirectoryChooser dc = new DirectoryChooser();F
+        DirectoryChooser dc = new DirectoryChooser();
         dc.setTitle("Selecciona la carpeta de destino");
         File carpeta = dc.showDialog(stage);
 
