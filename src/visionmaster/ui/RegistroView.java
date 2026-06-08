@@ -30,7 +30,7 @@ public class RegistroView {
         root.getStyleClass().add("step-panel");
         root.setPadding(new Insets(32, 40, 32, 40));
 
-        // Ttulo
+        //Ttulo
         Label titulo = new Label("Registro del cliente");
         titulo.getStyleClass().add("step-title");
         Label subtitulo = new Label("Ingresa los datos del cliente para comenzar");

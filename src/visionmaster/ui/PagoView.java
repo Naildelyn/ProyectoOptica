@@ -10,7 +10,7 @@ import visionmaster.model.Producto;
 import visionmaster.model.Tienda;
 
 /**
- * Pantalla 4: Mdulo de pago y aplicacin automtica de cupones.
+ * Pantalla 4: Modulo de pago.
  */
 public class PagoView {
 
@@ -38,13 +38,13 @@ public class PagoView {
         Label subtitulo = new Label("Revisa tu pedido y confirma el pago");
         subtitulo.getStyleClass().add("step-subtitle");
 
-        //  Lista de productos 
+        //  Lista de productos en el carrito
         Label lblProdTitulo = new Label("Productos en tu carrito");
         lblProdTitulo.getStyleClass().add("section-title");
 
         actualizarListaProductos();
 
-        //  Seccin de accesorios adicionales 
+        //  Seccion de accesorios adicionales que el cliente puede agregar
         Label lblAccTitulo = new Label("¿Deseas agregar algún accesorio?");
         lblAccTitulo.getStyleClass().add("section-title");
 
@@ -59,7 +59,7 @@ public class PagoView {
                 accesoriosBox.getChildren().add(btn);
             });
 
-        //  Panel de totales 
+        //  Panel de totales
         VBox totalesBox = new VBox(8);
         totalesBox.getStyleClass().add("totales-box");
         totalesBox.setPadding(new Insets(16, 20, 16, 20));

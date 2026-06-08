@@ -10,9 +10,7 @@ import visionmaster.model.Armazon;
 
 import java.util.List;
 
-/**
- * Pantalla 2: Selección de armazón + especificación de graduación y material.
- */
+//Pantalla 2 - Configuración del producto
 public class ProductoView {
 
     private final VBox view;

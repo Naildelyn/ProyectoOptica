@@ -9,10 +9,10 @@ import java.time.LocalDateTime;
 public class CitaExamen extends Cita {
 
     private double costo;
-    private String tipoExamen;     // Ej: Examen bsico, Topografa corneal
+    private String tipoExamen;
 
     public CitaExamen(String folio, LocalDateTime fechaHora, Cliente cliente,
-                      String tipoExamen, double costo) {
+                    String tipoExamen, double costo) {
         super(folio, fechaHora, cliente);
         this.tipoExamen = tipoExamen;
         this.costo = costo;

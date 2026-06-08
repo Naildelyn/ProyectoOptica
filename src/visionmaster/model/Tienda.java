@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class Tienda {
 
-    // ----- Atributos estáticos (globales) -----
+    // ----- Atributos estáticos  -----
     private static int totalVentasGlobal = 0;
     private static int folioContador    = 0;
     public  static final double MONTO_CUPON = 4000.0;
@@ -26,7 +26,7 @@ public class Tienda {
     }
 
     // ============================================================
-    //  MÉTODOS ESTÁTICOS – reglas de negocio globales
+    //  MÉTODOS ESTÁTICOS
     // ============================================================
 
     /** Valida si el monto califica para el cupón de descuento. */
@@ -34,7 +34,7 @@ public class Tienda {
         return monto >= MONTO_CUPON;
     }
 
-    /** Devuelve el siguiente folio de cita como texto formateado. */
+    /** Devuelve el siguiente folio  */
     public static String generarFolioCita() {
         return "CIT-" + String.format("%04d", ++folioContador);
     }
@@ -104,10 +104,7 @@ public class Tienda {
     //  PROCESAMIENTO DE VENTA
     // ============================================================
 
-    /**
-     * Procesa la venta final: registra la orden, actualiza historial
-     * del cliente e incrementa el contador global.
-     */
+    /** Procesa una venta y actualiza el total global de ventas. */
     public void procesarVenta(OrdenCompra orden) {
         orden.getCliente().agregarOrden(orden);
         totalVentasGlobal++;

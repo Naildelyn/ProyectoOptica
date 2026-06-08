@@ -211,7 +211,7 @@ public class CitaView {
         g.add(ctrl, 1, row);
     }
 
-    // Permite CheckBox también
+
     private void agregarFila(GridPane g, String lbl, CheckBox ctrl, int row) {
         Label l = new Label(lbl);
         l.getStyleClass().add("form-label");

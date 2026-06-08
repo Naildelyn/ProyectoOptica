@@ -4,10 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import visionmaster.enums.EstadoCita;
 
-/**
- * Clase base abstracta para las citas agendadas.
- * De ella heredan CitaExamen y CitaEntrega.
- */
+
 public abstract class Cita {
 
     protected String folio;

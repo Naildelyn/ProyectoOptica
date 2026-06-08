@@ -14,14 +14,14 @@ PRODUCTOS ADQUIRIDOS
 Armazón: AviatorGold (Armazón tipo aviador dorado)
   Marca: Tom Ford | Color: Dorado | Estilo: Aviador
   Graduación: Miopía | Material: Policarbonato
-  Precio base: $2200.00 | Total: $2550.00
-  → Precio: $2550.00
+  -Precio base: $2200.00 | Total: $2550.00
+   -Precio: $2550.00
 
 Armazón: VintageRound (Estilo retro redondeado)
   Marca: Persol | Color: Carey | Estilo: Redondo
   Graduación: Sin graduación | Material: Cristal
-  Precio base: $1500.00 | Total: $2000.00
-  → Precio: $2000.00
+  -Precio base: $1500.00 | Total: $2000.00
+  -Precio: $2000.00
 
 ----------------------------------------------------
 CITA AGENDADA

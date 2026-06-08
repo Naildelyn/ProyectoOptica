@@ -2,17 +2,13 @@ package visionmaster.model;
 
 import java.time.LocalDateTime;
 
-/**
- * Cita para recoleccin o entrega de lentes.
- * Hereda de Cita.
- */
-public class CitaEntrega extends Cita {
+class CitaEntrega extends Cita {
 
     private String direccion;
     private boolean requiereEnvio;
 
     public CitaEntrega(String folio, LocalDateTime fechaHora, Cliente cliente,
-                       String direccion, boolean requiereEnvio) {
+                        String direccion, boolean requiereEnvio) {
         super(folio, fechaHora, cliente);
         this.direccion = direccion;
         this.requiereEnvio = requiereEnvio;
